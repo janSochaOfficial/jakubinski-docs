@@ -42,7 +42,7 @@ hasło: `zaq1@WSX`
 # ustawienie domyślnej konfiguracji
 - `echo 1 > /proc/sys/net/ipv4/ip_forward` wstawienie jedynki
 - `cat /proc/sys/net/ipv4/ip_forward` sprawdzenie czy została wstawiona
-- `nano /etc/sysclt/conf`
+- `nano /etc/sysclt.conf`
 - usuń # przy `net.ipv4.ip_forward=1`
 
 # odblokowanie zapory
@@ -62,10 +62,15 @@ hasło: `zaq1@WSX`
 - `apt install samba`
 - `systemctl status smbd` sprawdzenie czy się pobrało
 
-# Konfiguracja
+# Tworzenie folderu anonymus
 - `mkdir /home/anonymus`
 - `chmod 777 /home/anonymus`
 - `ls -lrth /home | tail -1` sprawdzenie grupy do której należy folder
 - `chown nobody /home/anonymus`
 - `chgrp nogroup /home/anonymus`
 - `ls -lrth /home | tail -1` powinno być nobody nogroup zamiast root root
+
+# Konfiguracja SAMBA
+- `vim /etc/samba/smb.conf` zmiany zgode z pdf
+- `systemctl restart smbd`
+- `systemctl status smbd`
