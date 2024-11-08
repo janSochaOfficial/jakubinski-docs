@@ -74,3 +74,17 @@ hasło: `zaq1@WSX`
 - `vim /etc/samba/smb.conf` zmiany zgode z pdf
 - `systemctl restart smbd`
 - `systemctl status smbd`
+
+# Konfiguracja dla użytkownika uwierzytelnionego
+- `adduser jan-samba`
+- `smbpasswd -a jan-samba` - synchronizacja, hasło takie same jak w systemie powinno być
+- `mkdir /home/auto`
+- `chmod 777 /home/auto`
+- `chown jan-samba /home/auto`
+- `ls -lrth /home | tail -1`
+
+# Konfiguracja SAMBA
+- `vim /etc/samba/smb.conf` dodanie jan_space
+- `systemctl restart smbd`
+- `systemctl status smbd` - po tym wszytko powinno działać
+
